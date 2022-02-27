@@ -26,16 +26,16 @@ Use Sediment Analyst locally by cloning this repository or online with our app. 
 
 ### Clone the repository
 
-    $ git clone https://github.com/federicascolari8/Sediment-Analyst.git
+    $ git clone https://github.com/beatriznegreiros/sediment-analyst
 
-For running the code in your computer, clone this repository and make sure to install the necessary packages (checkout the ```requirements.txt``` file). Change the input parameters in the ```config.py``` and run ```main.py``` in the module *analyzer*. 
+For running the code in your computer, clone this repository and make sure to install the necessary packages (checkout the ```requirements.txt``` file). Change the input parameters in the ```config.py``` and run ```main.py``` in the subpackage *analyzer*. 
 
-Please note that the plots provided in the *analyzer* module are static (not interactive plots). These may be useful for reports and single sediment sample analyses. 
+Please note that the plots provided in the *analyzer* subpackage are static (not interactive plots). These may be useful for reports and single sediment sample analyses. 
 
 
-Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* module. 
+Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* subpackage. 
 Click on the link provided by your console (the link is similar to http://000.0.0.0:0000/). We provide a full video [tutorial](https://youtu.be/zXfN9-M12i0) on how 
-you can correctly input where the index information is, so that Sediment Analyst can parse your data files, in case you are not using our template as input file.
+you can correctly input where the index information is, so that Sediment Analyst can parse your data files, in case you are not using our template as input file. **Optional inputs** for the app are: latitude and longitude, SF (sphericity index) and Porosity index.
 
 ### Use the app
 
@@ -61,8 +61,8 @@ Sediment Analyst computes the following:
     * Hydraulic conductivity estimators computed with the [Kozeny-Carman Equation](https://link.springer.com/content/pdf/10.1007%2F978-3-642-40872-4_1995-1.pdf). Hydraulic Conductivity (kf) is computed in m/s with each of the above-mentioned computed porosity values.
     * Cumulative percentages according to the [Wentworth scale](https://www.planetary.org/space-images/wentworth-1922-grain-size).
  * Cumulative grain size distribution curves, which are available as:
-    * Static plots per sample with the *analyzer* module.
-    * Interactive plots with user-selected samples using the *app* module.
+    * Static plots per sample with the *analyzer* subpackage.
+    * Interactive plots with user-selected samples using the *app* subpackage.
  * Only in the app:
     * Bar chart of statistics.
     * Interactive map listing sample information (optional, is generated when latitude (y) and longitude (x) values are available).
@@ -71,7 +71,7 @@ Sediment Analyst computes the following:
 
 
 ## Package Structure
-Sediment Analyst is structured in two Python modules: *analyzer* and *app*. The app module imports the *analyzer* module for computed sediment statistics and for using utils.
+Sediment Analyst is structured in two Python subpackagess: *analyzer* and *app*. The app subpackage imports the *analyzer* subpackage for computing sediment statistics and for using utils.
 ![Code UML](https://github.com/federicascolari8/PythonProject_Other/raw/main/assets/code_uml_sediment_analyst.png "Code UML")
 
 
