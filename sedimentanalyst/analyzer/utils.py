@@ -16,8 +16,8 @@ def extract_df(dic=input, file=None):
 
     Returns:
         dff_gs: df, dataframe containing grain sizes and class weights (parsed according to the config.py)
-        metadata:   list, list of sample's information as following: [samplename, sampledate, (lat, long), porosity,
-                    sf_porosity], parsed accoridng to the config.py.
+        metadata: list, list of sample's information as following: [samplename, sampledate, (lat, long), porosity,
+                sf_porosity], parsed accoridng to the config.py.
     """
     df = pd.read_excel(file, engine="openpyxl", header=None)
     dff = df.copy()
