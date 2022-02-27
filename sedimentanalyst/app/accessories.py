@@ -19,7 +19,7 @@ class Accessories:
         inputs_text (dash.dcc.Markdown.Markdown): markdown text for explaining the inputs
         img_style(dict): style information for formatting images
         input_boxes (list): list of Input objects for enabling user to enter the indexing information to read from
-        his/her files
+            user's files
         style_graph (dict) style information for the graph components
         style_statistic (dict): style information for the statistic dropdown
 

@@ -16,10 +16,10 @@ class InteractivePlotter:
 
 
     Methods:
-        convert_coordinates(df, projection): Transforms the coordinates of a given projection to degrees
-        create_map(df, projection='epsg:3857', samples=None): Creates a scatter map
-        plot_barchart(param, samples): Plots the user-selected parameter for all samples in a bar chart
-        plot_gsd(samples): Plots the cumulative grain size distribution curve for all samples using a line chart
+        convert_coordinates (df, projection): Transforms the coordinates of a given projection to degrees
+        create_map (df, projection='epsg:3857', samples=None): Creates a scatter map
+        plot_barchart (param, samples): Plots the user-selected parameter for all samples in a bar chart
+        plot_gsd (samples): Plots the cumulative grain size distribution curve for all samples using a line chart
         plot_diameters(samples): Plots the calculated sediment diameters in a bar chart for all samples
     """
 
