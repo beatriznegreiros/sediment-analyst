@@ -1,0 +1,12 @@
+body {
+    font-family: segoe ui;
+    background-color: white;
+    color: black;
+    width: 1000px;
+    margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: black;
+	font-weight: bold;
+}
