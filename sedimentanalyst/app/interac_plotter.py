@@ -17,7 +17,7 @@ class InteractivePlotter:
 
     Methods:
         convert_coordinates (df, projection): Transforms the coordinates of a given projection to degrees
-        create_map (df, projection='epsg:3857', samples=None): Creates a scatter map
+        create_map (df, projection, samples=None): Creates a scatter map
         plot_barchart (param, samples): Plots the user-selected parameter for all samples in a bar chart
         plot_gsd (samples): Plots the cumulative grain size distribution curve for all samples using a line chart
         plot_diameters(samples): Plots the calculated sediment diameters in a bar chart for all samples
@@ -65,7 +65,7 @@ class InteractivePlotter:
 
         Returns:
             plotly.graph_objects.Figure: Figure object that allows the visualization of the Open Street map of the area
-                where the samples were collected
+            where the samples were collected
         """
 
         # convert coordinates to input projection
@@ -177,11 +177,11 @@ class InteractivePlotter:
         Method which plots the calculated sediment diameters in a bar chart for all selected samples.
 
         Args:
-             samples (list): Names of the collected samples
+            samples (list): Names of the collected samples
 
-         Returns:
-             plotly.graph_objects.Figure: Figure object allowing to visualize the calculated diameters
-                (d10, d16, d25, d30, d50, d60, d75, d84 and d90) for all the collected samples
+        Returns:
+            plotly.graph_objects.Figure: Figure object allowing to visualize the calculated diameters
+            (d10, d16, d25, d30, d50, d60, d75, d84 and d90) for all the collected samples
         """
 
         # filter samples given sample name

@@ -8,7 +8,7 @@ Sediment Analyst is a modularized Python package and dash app that enables sedim
 
 .. important::
 
-	Checkout the package `requirements <https://github.com/beatriznegreiros/sediment-analyst/blob/master/requirements.txt>`_ file in the `Github repository <https://github.com/federicascolari8/Sediment-Analyst>`_ for installing the necessary processing libraries. 
+	Checkout the package `requirements <https://github.com/beatriznegreiros/sediment-analyst/blob/master/requirements.txt>`_ file in the `Github repository <https://github.com/beatriznegreiros/sediment-analyst>`_ for installing the necessary processing libraries. 
 	
 Outputs and Capabilities
 ########################
