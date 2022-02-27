@@ -31,11 +31,11 @@ class InteractivePlotter:
         Method which transforms the coordinates of a give projection to degrees.
 
         Args:
-            df (pandas.core.frame.DataFrame): DataFrame on which the coordinate transformation is applied
-            projection (str): Name of the initial projection
+            df: pandas.core.frame.DataFrame, DataFrame on which the coordinate transformation is applied
+            projection: str, name of the initial projection
 
         Returns:
-            df (pandas.core.frame.DataFrame): DataFrame object on which the coordinate transformation has been applied
+            df: pandas.core.frame.DataFrame, DataFrame object on which the coordinate transformation has been applied
         """
 
         # import projections
@@ -59,12 +59,12 @@ class InteractivePlotter:
         Creates a scatter map based on the DataFrame
 
         Args:
-            df (DataFrame): DataFrame on which the coordinate transformation has been applied
-            projection (str): Name of the initial projection
-            samples (list): Names of the collected samples
+            df: DataFrame, DataFrame on which the coordinate transformation has been applied
+            projection: str, name of the initial projection
+            samples: list, names of the collected samples
 
         Returns:
-            fig (plotly.graph_objects.Figure): Figure object that allows the visualization of the Open
+            fig: plotly.graph_objects.Figure, figure object that allows the visualization of the Open
                                                Street map of the area where the samples were collected
         """
 
@@ -95,11 +95,11 @@ class InteractivePlotter:
         Method that outputs the results in a bar chart for the interactive comparison of the results.
 
         Args:
-            param (str): Statistical parameters selectable from the user
-            samples (list): Names of the collected samples
+            param: str, statistical parameters selectable from the user
+            samples: list, names of the collected samples
 
         Returns:
-            fig (plotly.graph_objects.Figure): Figure object that allows the visualization of the plot of a
+            fig: plotly.graph_objects.Figure, figure object that allows the visualization of the plot of a
                                                bar chart in which the statistical parameter selected by the
                                                user is shown for each selected sample
         """
@@ -134,10 +134,10 @@ class InteractivePlotter:
         Method which plots the cumulative grain size distribution curve for all selected samples.
 
         Args:
-             samples (list): Names of the collected samples
+             samples: list, names of the collected samples
 
          Returns:
-             fig (plotly.graph_objects.Figure): Figure object enabling the visualization of the plot
+             fig: plotly.graph_objects.Figure, figure object enabling the visualization of the plot
                                                 of the grain size distribution curve for all collected
                                                 sample by using a line chart
         """
@@ -179,10 +179,10 @@ class InteractivePlotter:
         Method which plots the calculated sediment diameters in a bar chart for all selected samples.
 
         Args:
-             samples (list): Names of the collected samples
+             samples: list, names of the collected samples
 
          Returns:
-             fig (plotly.graph_objects.Figure): Figure object allowing to visualize the calculated diameters
+             fig: plotly.graph_objects.Figure, figure object allowing to visualize the calculated diameters
                                                 (d10, d16, d25, d30, d50, d60, d75, d84 and d90) for all the
                                                 collected samples
         """

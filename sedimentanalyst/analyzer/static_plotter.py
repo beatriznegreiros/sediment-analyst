@@ -29,7 +29,7 @@ class StaticPlotter:
         Method to output the cumulative grain size distribution curve and save it as an image
 
         Args:
-             output (str): Name of the image containing the outputs
+             output: str, name of the image containing the outputs
 
         Returns:
              None
@@ -60,7 +60,7 @@ class StaticPlotter:
         Private method that defines the main secondary axis
 
         Args:
-             ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main axis
+             ax: matplotlib.axes._subplots.AxesSubplot, axesSubplot object defining the main axis
 
         Returns:
              None
@@ -84,7 +84,7 @@ class StaticPlotter:
         Private method defining the minor secondary axis
 
         Args:
-             ax2 (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the minor secondary axis
+             ax2: matplotlib.axes._subplots.AxesSubplot, axesSubplot object defining the minor secondary axis
 
         Returns:
              None
@@ -107,7 +107,7 @@ class StaticPlotter:
         Private method which sets the output properties
 
         Args:
-             ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main secondary axis
+             ax: matplotlib.axes._subplots.AxesSubplot, axesSubplot object defining the main secondary axis
 
         Returns:
              None
