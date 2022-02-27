@@ -113,12 +113,12 @@ class Accessories:
             contents (dash.dcc.Input.Input): Contents of the file containing the sample data (class weights and
             corresponding grain sizes)
             filename (dash.dcc.State.State): Filename
-            date (dash.dcc.State.State):
+            date (dash.dcc.State.State):  date of last modified
             input_dict_app (dict): Index parameters input by the user necessary to read and parse the contents
                 of the file
 
         Returns:
-            tuple: Object of StatisticalAnalyzer and Div with reading messages
+            StatisticalAnalyzer: object for accessing necessary attributes of the class.
         """
         content_type, content_string = contents.split(',')
 
