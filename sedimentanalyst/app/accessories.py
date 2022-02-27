@@ -50,9 +50,10 @@ class Accessories:
                 
                 Sediment Analyst is a web application coded in Python-3 to leverage a quick, interactive, and 
                 visual sedimentological analyses. By inputting datasets of sieved class weights (see examples 
-                [here](https://github.com/federicascolari8/PythonProject/blob/main/templates/template-sample-file.xlsx)), Sediment
-                Analyst computes characteristic grain sizes (namely, d10, d16, d25, d30, d50, d60, d75, d84, d90), mean grain 
-                size, geometrical mean grain size, porosity, and hydraulic conductivity estimators. Checkout our video 
+                [here](https://github.com/federicascolari8/PythonProject/blob/main/templates/template-sample-file.xlsx)),
+                Sediment Analyst computes characteristic grain sizes (namely, d10, d16, d25, d30, d50, d60, d75, d84, 
+                d90), mean grain size, geometrical mean grain size, porosity, and hydraulic conductivity estimators. 
+                Checkout our video 
                 [tutorial](https://youtu.be/zXfN9-M12i0).
                 
                 '''
@@ -80,7 +81,7 @@ class Accessories:
                 '''
                 Delete default input values below for personalizing the parsing of the files contents when not using our 
                 [template](https://github.com/federicascolari8/PythonProject/blob/main/templates/template-sample-file.xlsx).
-                In following, press the 'RUN' buttom below '''),
+                In following, press the 'RUN' button below '''),
             dcc.Input(id="header", type="number", placeholder="table's header", value=9),
             dcc.Input(id="gs_clm", type="number", placeholder="grain sizes column index (start from zero)",
                       value=1),
@@ -109,13 +110,15 @@ class Accessories:
     def parse_contents(self, contents, filename, date, input_dict_app):
         """
         Args:
-            contents (dash.dcc.Input.Input): contents of the file containing the sample data (class weights and
+            contents (dash.dcc.Input.Input): Contents of the file containing the sample data (class weights and
             corresponding grain sizes)
-            filename (dash.dcc.State.State): filename
+            filename (dash.dcc.State.State): Filename
             date (dash.dcc.State.State):
-            input_dict_app (dict): index parameters input by the user necessary to read and parse the contents of the file
+            input_dict_app (dict): Index parameters input by the user necessary to read and parse the contents
+                of the file
+
         Returns:
-            tuple of Object of StatisticalAnalyzer and Div with reading messages
+            tuple: Object of StatisticalAnalyzer and Div with reading messages
         """
         content_type, content_string = contents.split(',')
 

@@ -26,10 +26,10 @@ class StaticPlotter:
 
     def cum_plotter(self, output):
         """
-        Method to output the cumulative grain size distribution curve and save it as an image
+        Method to output the cumulative grain size distribution curve and save it as an image.
 
         Args:
-             output: str, name of the image containing the outputs
+             output (str): Name of the image containing the outputs
 
         Returns:
              None
@@ -57,10 +57,10 @@ class StaticPlotter:
 
     def __set_main_sec_axis(self, ax):
         """
-        Private method that defines the main secondary axis
+        Private method that defines the main secondary axis.
 
         Args:
-             ax: matplotlib.axes._subplots.AxesSubplot, axesSubplot object defining the main axis
+             ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main axis
 
         Returns:
              None
@@ -81,10 +81,10 @@ class StaticPlotter:
 
     def __set_min_sec_axis(self, ax2):
         """
-        Private method defining the minor secondary axis
+        Private method defining the minor secondary axis.
 
         Args:
-             ax2: matplotlib.axes._subplots.AxesSubplot, axesSubplot object defining the minor secondary axis
+             ax2 (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the minor secondary axis
 
         Returns:
              None
@@ -104,10 +104,10 @@ class StaticPlotter:
 
     def __set_axis_colour_and_format(self, ax):
         """
-        Private method which sets the output properties
+        Private method which sets the output properties.
 
         Args:
-             ax: matplotlib.axes._subplots.AxesSubplot, axesSubplot object defining the main secondary axis
+             ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main secondary axis
 
         Returns:
              None
