@@ -8,7 +8,7 @@ Sediment Analyst is a modularized Python package and dash app that enables sedim
 
 ## Requirements
 
-Python > 3.0 is required, butPython 3.9 is preferable due to stable behaviors in regard to the packages.
+Python > 3.0 is required, but Python 3.9 is preferable due to stable behaviors in regard to the packages.
 
 The used *Python* libraries are: *numpy*, *scipy*, *pathlib*, *matplotlib*, *openpyxl*, *pandas*, *seaborn*, *dash*, *pyproj*, *plotly*.
 
@@ -20,7 +20,7 @@ Important! Checkout the ```requirements.txt``` file for the version requirements
 
 ## Running the Codes and preparing Inputs
 
-The input data for sedimentanalyst consists of excel/csv files for each sediment sample. Accepted extensions are therefore ```.csv``` and ```.xlsx```. 
+The input data for sediment-analyst consists of Excel/csv files for each sediment sample. Accepted extensions are therefore ```.csv``` and ```.xlsx```. 
 
 Use Sediment Analyst locally by cloning this repository or online with our app. Checkout:
 
@@ -28,14 +28,18 @@ Use Sediment Analyst locally by cloning this repository or online with our app. 
 
     $ git clone https://github.com/federicascolari8/Sediment-Analyst.git
 
-For runing the code in your computer, clone this repository and make sure to install the necessary parackages (chekout the ```requirements.txt``` file). Change the input parameters in the ```config.py``` and run ```main.py``` in the module *analyzer*. Please note that the plots provided in the *analyzer* module are static (not interactive plots). These may be useful for reports and single sediment sample analyses. 
+For running the code in your computer, clone this repository and make sure to install the necessary packages (checkout the ```requirements.txt``` file). Change the input parameters in the ```config.py``` and run ```main.py``` in the module *analyzer*. 
+
+Please note that the plots provided in the *analyzer* module are static (not interactive plots). These may be useful for reports and single sediment sample analyses. 
 
 
-Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* module. Click in the link provided by your console (the link is similar to http://000.0.0.0:0000/). We provide a full video [tutorial](https://youtu.be/zXfN9-M12i0) on how you can correctly input where index information so that Sediment Analyst can parse your data files, in case you are not using our template as input file.
+Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* module. 
+Click on the link provided by your console (the link is similar to http://000.0.0.0:0000/). We provide a full video [tutorial](https://youtu.be/zXfN9-M12i0) on how 
+you can correctly input where the index information is, so that Sediment Analyst can parse your data files, in case you are not using our template as input file.
 
 ### Use the app
 
-The app can be also accessed [here](https://sedimentanalyst.herokuapp.com), which runs with a [heroku](https://www.heroku.com/) server. Note that here there is a maximum limit of 500 MB for loading in the app. For inputing very large datasets (> 500 MB) we recommend to use the app locally. 
+The app can be also accessed [here](https://sedimentanalyst.herokuapp.com), which runs with a [heroku](https://www.heroku.com/) server. Note that here there is a maximum limit of 500 MB when loading in the app. For inputting very large datasets (> 500 MB) we recommend using the app locally. 
 
 [![Image](assets/intro_w_image.jpg)](https://sedimentanalyst.herokuapp.com/)
 
@@ -44,23 +48,23 @@ The app can be also accessed [here](https://sedimentanalyst.herokuapp.com), whic
 
 Sediment Analyst computes the following:
 * A summary of sediment characteristics, which can be exported as csv:
-    * d10, d16, d25, d30, d50, d84, d90;
-    * Mean grain size, geometric mean grain size [(Bunte and Abt, 2001)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.2001.tb05528.x), grain size standard deviation, geometric standard deviation [(Frings et al., 2011)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010WR009690);
-    * Sorting index, Fredle index
-    * Skewness and kurtosis 
-    * Coefficient of uniformity, curvature coefficient;
+    * d10, d16, d25, d30, d50, d84, d90.
+    * Mean grain size, geometric mean grain size [(Bunte and Abt, 2001)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.2001.tb05528.x), grain size standard deviation, geometric standard deviation [(Frings et al., 2011)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010WR009690).
+    * Sorting index, Fredle index.
+    * Skewness and kurtosis.
+    * Coefficient of uniformity, curvature coefficient.
     * Porosity estimators according to empirical equations available in the literature:
         * [Carling and Reader (1982)](https://onlinelibrary.wiley.com/doi/abs/10.1002/esp.3290070407)
         * [Wu and Wang (2006)](https://ascelibrary.org/doi/full/10.1061/%28ASCE%290733-9429%282006%29132%3A8%28858%29)
         * [Wooster et al. (2008)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2006WR005815): recommended for gravel-beds with geometric standard deviation between 0.004 m and 0.018 m.
         * [Frings et al. (2011)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010WR009690)
-    * hydraulic conductivity estimators computed with the [Kozeny-Carman Equation](https://link.springer.com/content/pdf/10.1007%2F978-3-642-40872-4_1995-1.pdf). Hydraulic Conductivity (kf) is computed in m/s with each of the above-mentioned computed porosity values.
+    * Hydraulic conductivity estimators computed with the [Kozeny-Carman Equation](https://link.springer.com/content/pdf/10.1007%2F978-3-642-40872-4_1995-1.pdf). Hydraulic Conductivity (kf) is computed in m/s with each of the above-mentioned computed porosity values.
     * Cumulative percentages according to the [Wentworth scale](https://www.planetary.org/space-images/wentworth-1922-grain-size).
  * Cumulative grain size distribution curves, which are available as:
-    * static plots per sample with the *analyzer* module, or:
-    * interactive plots with user-selected samples using the *app* module.
+    * Static plots per sample with the *analyzer* module.
+    * Interactive plots with user-selected samples using the *app* module.
  * Only in the app:
-    * Bar chart of statistics
+    * Bar chart of statistics.
     * Interactive map listing sample information (optional, is generated when latitude (y) and longitude (x) values are available).
  
  *For more information see the documentation of the class StatisticalAnalyzer.*

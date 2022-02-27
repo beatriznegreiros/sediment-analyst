@@ -1,4 +1,4 @@
-""" Module designated for the Interactive Plotter
+""" Module designated for the class InteractivePlotter
 
 Author : Federica Scolari
 

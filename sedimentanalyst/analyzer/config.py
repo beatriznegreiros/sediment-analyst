@@ -1,4 +1,5 @@
-""" This module contains all the imported packages (dependencies) and
+"""
+This module contains all the imported packages (dependencies) and
 user inputs for running the classes StatisticalAnalyzer and StaticPlotter.
 """
 

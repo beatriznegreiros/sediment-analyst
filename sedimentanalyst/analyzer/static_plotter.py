@@ -1,3 +1,9 @@
+""" Module designated for the class StaticPlotter
+
+Author : Federica Scolari
+
+"""
+
 from sedimentanalyst.analyzer.config import *
 
 
@@ -54,7 +60,7 @@ class StaticPlotter:
         Private method that defines the main secondary axis
 
         Args:
-             ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main
+             ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main axis
 
         Returns:
              None
@@ -98,7 +104,7 @@ class StaticPlotter:
 
     def __set_axis_colour_and_format(self, ax):
         """
-        Private method which sets the outputs properties
+        Private method which sets the output properties
 
         Args:
              ax (matplotlib.axes._subplots.AxesSubplot): AxesSubplot object defining the main secondary axis
