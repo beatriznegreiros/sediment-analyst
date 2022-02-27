@@ -14,20 +14,20 @@ class StatisticalAnalyzer:
 
     Attributes:
         original_df (df): dataframe containing in the first column the grain sizes diameters (in mm) and in the second
-                            column the fraction mass that passes through the corresponding diameter.
+            column the fraction mass that passes through the corresponding diameter.
         cumulative_df (df): dataframe containing in the first column the grain sizes diameters (in mm) and in the second
-                            column the cumulative percentages (% in mass, in grams) that passes through the corresponding grain size diameters.
+            column the cumulative percentages (% in mass, in grams) that passes through the corresponding grain size diameters.
         statistics_df (df): dataframe containing all the statistics of the sample, which includes:
-                            d10, d16, d25, d30, d50, d60, d75, d84, d90, Mean Grain Site dm [mm], Geometrical mean grain size dg [mm],
-                            Sorting Index, Fredle Index, Grain Size standard deviation, skewness, kurtosis, coefficient of uniformity Cu,
-                            curvature coefficient Cc.
+            d10, d16, d25, d30, d50, d60, d75, d84, d90, Mean Grain Site dm [mm], Geometrical mean grain size dg [mm],
+            Sorting Index, Fredle Index, Grain Size standard deviation, skewness, kurtosis, coefficient of uniformity Cu,
+            curvature coefficient Cc.
         porosity_conductivity_df (df): dataframe containing the porosity estimators (estimated from the grain size
-                                       analysis) according to different literature, as well as the corresponding hydraulic conductivity estimator for
-                                       each of the porosity values according to the Kozeny Carman Equation.
+            analysis) according to different literature, as well as the corresponding hydraulic conductivity estimator for
+            each of the porosity values according to the Kozeny Carman Equation.
         samplename (str): sample name
         coords (tuple): x and y coordinates, in this order
         porosity (float): porosity values set up by the user, possibly via alternative measurements, such as
-                          with photogramic approaches.
+            with photogramic approaches.
         sf_porosity (float): sphericity index. For rounded sediments it equals 6.10
 
     Methods:
@@ -46,12 +46,12 @@ class StatisticalAnalyzer:
         Initializes attributes and direct calling of class methods
 
         Args:
-            input: dict, dictionary containing the necessary indexes (rows and columns from the xlsx or csv files)
-                   for reading relevant sample information.
-            sieving_df: df, dataframe containing the sieving results of a sediment sample (1st column containing grain
-                        sizes and 2nd sample containing the class weights in grams.
-            metadata: list, list of single values as metadata, [samplename (str), sampledate (str), (lat (float), long (float)),
-                      porosity (float), sf_porosity (float)]
+            input (dict): dictionary containing the necessary indexes (rows and columns from the xlsx or csv files)
+                for reading relevant sample information.
+            sieving_df (df): dataframe containing the sieving results of a sediment sample (1st column containing grain
+                sizes and 2nd sample containing the class weights in grams.
+            metadata (list): list of single values as metadata, [samplename (str), sampledate (str), (lat (float), long (float)),
+                porosity (float), sf_porosity (float)]
         """
 
         # Attributes
@@ -392,7 +392,6 @@ class StatisticalAnalyzer:
             self.porosity_conductivity_df.at[4, "Porosity"] = self.porosity
         except:
             self.porosity_conductivity_df.at[4, "Porosity"] = np.nan
-
         pass
 
     def print_excel(self, file_name="statistics.xlsx"):
@@ -401,7 +400,7 @@ class StatisticalAnalyzer:
         into local folder "outputs"
 
         Args:
-            file_name: Path to save the file
+            file_name (str): Path to save the file
 
         """
         # Creating Excel Writer Object from Pandas
@@ -433,10 +432,10 @@ class StatisticalAnalyzer:
         Computes the hydraulic conductivity according to the Kozeny Carman Equation
 
         Args:
-             porosity: Sample porosity
+             porosity (float): Sample porosity
 
         Returns:
-             kozeny_carman_kf: Sample hydraulic conductivity [m\s]
+             float: Sample hydraulic conductivity [m\s]
         """
         kozeny_df = pd.DataFrame().append(self.cumulative_df)
         kozeny_df["D_ave_i [cm]"] = ((kozeny_df["Grain Sizes [mm]"].shift(1, fill_value=0) / 10) ** 0.404) * (

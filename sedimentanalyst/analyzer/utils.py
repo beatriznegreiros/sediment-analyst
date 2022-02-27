@@ -1,4 +1,5 @@
-""" This module contains auxiliary functions to handle the StatisticalAnalyzer class
+""" Module containing auxiliary functions to handle the StatisticalAnalyzer class and for running
+main.py
 
 Author: Beatriz Negreiros and Federica Scolari
 
@@ -11,13 +12,13 @@ def extract_df(dic=input, file=None):
     Function to extract parsed datafiles and tabularize it into dataframe.
 
     Args:
-        dic: dict, global input parameters that can be altered in the config.py file
-        file: str, name of the file containing a sieving sample
+        dic (dict):  global input parameters that can be altered in the config.py file
+        file (str): path name of the file containing a sieving sample
 
     Returns:
-        dff_gs: df, dataframe containing grain sizes and class weights (parsed according to the config.py)
-        metadata: list, list of sample's information as following: [samplename, sampledate, (lat, long), porosity,
-                sf_porosity], parsed accoridng to the config.py.
+        df: dataframe containing grain sizes and class weights (parsed according to the config.py)
+        list: list of sample's information as following: [samplename, sampledate, (lat, long), porosity,
+            sf_porosity], parsed accoridng to the config.py.
     """
     df = pd.read_excel(file, engine="openpyxl", header=None)
     dff = df.copy()
@@ -91,10 +92,10 @@ def find_files(folder=None):
     Lists the files in the folder indicated
 
     Args:
-        folder: str, path of the folder to scan (to look for .xlxs files)
+        folder (str): path of the folder to scan (to look for .xlxs files)
 
     Returns:
-        file_list: list, list of strings from addresses of all files inside the folder
+        list: list of strings from addresses of all files inside the folder
     """
 
     # Append / or / in director name if it does not have
@@ -113,11 +114,11 @@ def append_global(obj=None, df=None):
     Statistical Analyzer into one dataframe for further filtering and analyses
 
     Args:
-        obj: StatisticalAnalyzer, object of the class StatisticalAnalyzer to append
-        df: df, dataframe to be appended
+        obj (StatisticalAnalyzer) object of the class StatisticalAnalyzer to append
+        df (df) dataframe to be appended
 
     Returns:
-        df: df, appended dataframe with statistics of sample file
+        df: appended dataframe with statistics of sample file
     """
 
     # organize statistics to append in global df
