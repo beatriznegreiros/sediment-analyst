@@ -26,16 +26,16 @@ Use Sediment Analyst locally by cloning this repository or online with our app. 
 
 ### Clone the repository
 
-    $ git clone https://github.com/federicascolari8/Sediment-Analyst.git
+    $ git clone https://github.com/beatriznegreiros/sediment-analyst
 
-For running the code in your computer, clone this repository and make sure to install the necessary packages (checkout the ```requirements.txt``` file). Change the input parameters in the ```config.py``` and run ```main.py``` in the module *analyzer*. 
+For running the code in your computer, clone this repository and make sure to install the necessary packages (checkout the ```requirements.txt``` file). Change the input parameters in the ```config.py``` and run ```main.py``` in the subpackage *analyzer*. 
 
-Please note that the plots provided in the *analyzer* module are static (not interactive plots). These may be useful for reports and single sediment sample analyses. 
+Please note that the plots provided in the *analyzer* subpackage are static (not interactive plots). These may be useful for reports and single sediment sample analyses. 
 
 
-Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* module. 
+Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* subpackage. 
 Click on the link provided by your console (the link is similar to http://000.0.0.0:0000/). We provide a full video [tutorial](https://youtu.be/zXfN9-M12i0) on how 
-you can correctly input where the index information is, so that Sediment Analyst can parse your data files, in case you are not using our template as input file.
+you can correctly input where the index information is, so that Sediment Analyst can parse your data files, in case you are not using our template as input file. **Optional inputs** for the app are: latitude and longitude, SF (sphericity index) and Porosity index.
 
 ### Use the app
 
@@ -61,8 +61,8 @@ Sediment Analyst computes the following:
     * Hydraulic conductivity estimators computed with the [Kozeny-Carman Equation](https://link.springer.com/content/pdf/10.1007%2F978-3-642-40872-4_1995-1.pdf). Hydraulic Conductivity (kf) is computed in m/s with each of the above-mentioned computed porosity values.
     * Cumulative percentages according to the [Wentworth scale](https://www.planetary.org/space-images/wentworth-1922-grain-size).
  * Cumulative grain size distribution curves, which are available as:
-    * Static plots per sample with the *analyzer* module.
-    * Interactive plots with user-selected samples using the *app* module.
+    * Static plots per sample with the *analyzer* subpackage.
+    * Interactive plots with user-selected samples using the *app* subpackage.
  * Only in the app:
     * Bar chart of statistics.
     * Interactive map listing sample information (optional, is generated when latitude (y) and longitude (x) values are available).
@@ -71,164 +71,14 @@ Sediment Analyst computes the following:
 
 
 ## Package Structure
-Sediment Analyst is structured in two Python modules: *analyzer* and *app*. The app module imports the *analyzer* module for computed sediment statistics and for using utils.
-![Code UML](https://github.com/federicascolari8/PythonProject_Other/raw/main/assets/code_uml_sediment_analyst.png "Code UML")
+Sediment Analyst is structured in two Python subpackagess: *analyzer* and *app*. The app subpackage imports the *analyzer* subpackage for computing sediment statistics and for using utils.
+![Code UML](https://raw.githubusercontent.com/beatriznegreiros/sediment-analyst/master/assets/code_uml_sediment_analyst.png "Code UML")
 
 
-## Code description
+## Code Documentation
 
-##config.py
+Access the [readthedocs](https://sedimentanalyst-sediment-analyst.readthedocs-hosted.com/en/latest/#) for checking the code documentation. We recommend, however, the usage of our video [tutorial](https://youtu.be/zXfN9-M12i0) for the app.
 
-Module containing all the imported packages and the user inputs necessary for running the StatisticalAnalyzer and StaticPlotter Classes.
-
-| Input | Type | Description |
-|-----------------|------|-------------|
-|`sample_name`| STR | Name of the sample |
-|`header`| INT | Number of lines with a header before the dataset|
-|`gs_clm`| INT | Grain size column index|
-|`cw_clm`| INT | Class weight column index |
-|`porosity`| LIST | Option to provide the porosity manually |
-|`SF_porosity`| LIST | Statistical parameter which is/are plotted |
-|`index_lat`| LIST | Sample latitudinal coordinate |
-|`index_long`| LIST | Sample longitudinal coordinate |
-|`folder_path`| STR | Path of folder from which the data is read |
-|`index_sample_name`| LIST | Index of the Excel sheet containing the sample name |
-|`index_sample_date`| LIST | Index of the Excel sheet containing the date in which the sample was collected |
-|`projection`| STR | Definition of the projection |
-
-##utils.py
-
-##statistical_analyzer.py
-
-<br/>
-
-##static_plotter.py
-
-File in which the `StaticPlotter` Class is stored. This Class defines the methods which allow the
-plotting and saving as an image of the cumulative grain size distribution curve for each collected sample.
-
-The methods composing the `StaticPlotter` Class are the following:
-
-### `__init__()`
-
-Initializes a StatisticalAnalyzer variable and a dataframe by using the analyzer object.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`analyzer`| StatisticalAnalyzer  | Internally used StatisticalAnalyzer object. |
-
-
-### `cum_plotter()`
-Plots the cumulative grain size distribution curve and saves it as an image.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`output`| STR  | Name of the saved image containing the plot. |
-
-**return:** None
-
-### `__set_main_sec_axis()`
-
-Private method used to set the main secondary axis with the axis *ax* as input argument.
-
-**return:** None
-
-### `__set_min_sec_axis()`
-
-Private method used to set the minor secondary axis with the axis *ax2* as input argument.
-
-**return:** None
-
-### `__set_axis_colour_and_format()`
-
-Private method with the axis *ax* as input, used to define the following:
-- Axis tick values for the x-axis.
-- Axis tick values for the y-axis. 
-- Vertical line across the axis properties.
-- Axes labels.
-
-**return:** None
-
-<br/>
-
-##main.py
-
-File where the DataFrame is instantiated, the user-input in retrieved and a list of the files in the user selected folder is created.
-Samples contained in the files are then computed.
-
-<br/>
-
-##appconfig.py
-
-Module containing the imported packages necessary to correctly configure the environment for *web_application.py* and *interac_plotter.py*
-
-<br/>
-
-##apputils.py
-
-
-<br/>
-
-##interac_plotter.py
-Module containing the `InteractivePlotter` Class. It has been designed for the creation of the map, 
-used to indicate the location of the collected samples, and the interactive plots necessary for the 
-comparison of the results of the statistical analysis.  
-Here below the description of the methods defined in the `InteractivePlotter` Class:
-
-### `convert_coordinates()`
-
-Transforms the coordinates of a give projection in degrees.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`df`| DataFrame  | DataFrame on which the coordinate transformation is applied. |
-|`projection`| STR  | Name of the initial projection. |
-
-**return:** df (DataFrame)
-
-### `create_map()`
-Creates a scatter map based on the data contained in the dataframe.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`df`| DataFrame  | DataFrame on which the coordinate transformation is applied. |
-|`projection`| STR  | Name of the initial projection. |
-|`samples`| LIST  | Names of the samples. |
-
-**return:** fig (Figure)
-
-### `plot_histogram()`
-
-Plots the results in a bar chart based on the statistical parameters selected by the user.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`param`| STR  | Parameters among which the user can choose for the results visualization. |
-|`samples`| LIST  | Names of the samples. |
-
-**return:** fig (Figure)
-
-### `plot_gsd()`
-
-Plots the cumulative grain size distribution curve for all selected samples.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`samples`| LIST  | Names of the samples. |
-
-**return:** fig (Figure)
-
-<br/>
-
-### `plot_diameters()`
-
-Plots the calculated sediment diameters in a bar chart for all selected samples.
-
-| Input argument | Type | Description |
-|-----------------|------|-------------|
-|`samples`| LIST  | Names of the samples. |
-
-**return:** fig (Figure)
 
 
 
