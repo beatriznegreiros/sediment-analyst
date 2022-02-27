@@ -3,17 +3,18 @@
 
 sedimentanalyst
 ===========================================
-Sediment Analyst is a modularized Python package and dash app that enables sedimentological analyses. By using sieving datasets as input, Sediment Analyst computes sediment statistics. For a complete list of computed statistics see section below (*Outputs*). For using our app, please watch our video tutorial `here<https://youtu.be/zXfN9-M12i0>`_.
+Sediment Analyst is a modularized Python package and dash app that enables sedimentological analyses. By using sieving datasets as input, Sediment Analyst computes sediment statistics. For a complete list of computed statistics see section below (*Outputs*). For using our app, please watch our video tutorial `here <https://youtu.be/zXfN9-M12i0>`_.
 
 
 .. important::
 
-	Checkout the package `requirements <https://github.com/beatriznegreiros/sediment-analyst/blob/master/requirements.txt>`_ file in the _`Github repository <https://github.com/federicascolari8/Sediment-Analyst>`_ for installing the necessary processing libraries. 
+	Checkout the package `requirements <https://github.com/beatriznegreiros/sediment-analyst/blob/master/requirements.txt>`_ file in the `Github repository <https://github.com/federicascolari8/Sediment-Analyst>`_ for installing the necessary processing libraries. 
 	
 Outputs and Capabilities
 ########################
 
 Sediment Analyst computes the following:
+
 * A summary of sediment characteristics, which can be exported as csv:
     * d10, d16, d25, d30, d50, d84, d90.
     * Mean grain size, geometric mean grain size `(Bunte and Abt, 2001) <https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.2001.tb05528.x>`_, grain size standard deviation, geometric standard deviation `(Frings et al., 2011) <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010WR009690>`_.
