@@ -72,7 +72,7 @@ Sediment Analyst computes the following:
 
 ## Package Structure
 Sediment Analyst is structured in two Python subpackagess: *analyzer* and *app*. The app subpackage imports the *analyzer* subpackage for computing sediment statistics and for using utils.
-![Code UML](https://github.com/federicascolari8/PythonProject_Other/raw/main/assets/code_uml_sediment_analyst.png "Code UML")
+![Code UML](https://raw.githubusercontent.com/beatriznegreiros/sediment-analyst/master/assets/code_uml_sediment_analyst.png "Code UML")
 
 
 ## Code Documentation
