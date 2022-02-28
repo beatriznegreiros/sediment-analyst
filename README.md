@@ -67,7 +67,7 @@ Sediment Analyst computes the following:
     * Bar chart of statistics.
     * Interactive map listing sample information (optional, is generated when latitude (y) and longitude (x) values are available).
  
- *For more information see the documentation of the class StatisticalAnalyzer.*
+ *For more information see the [readthedocs](https://sedimentanalyst-sediment-analyst.readthedocs-hosted.com/en/latest/sedimentanalyst.analyzer.html#module-sedimentanalyst.analyzer.statistical_analyzer) of the class StatisticalAnalyzer.*
 
 
 ## Package Structure
