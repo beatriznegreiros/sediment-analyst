@@ -222,7 +222,7 @@ class StatisticalAnalyzer:
         """
         self.statistics_df.at[15, "Name"] = "Skewness"
 
-        skewness = scipy.stats.skew(self.__interpolation_df["Grain size (interpolated) "])
+        skewness = stats.skew(self.__interpolation_df["Grain size (interpolated) "])
         self.statistics_df.at[15, "Value"] = skewness
         pass
 
@@ -233,7 +233,7 @@ class StatisticalAnalyzer:
         """
         self.statistics_df.at[16, "Name"] = "Kurtosis"
 
-        kurtosis = scipy.stats.kurtosis(self.__interpolation_df["Grain size (interpolated) "])
+        kurtosis = stats.kurtosis(self.__interpolation_df["Grain size (interpolated) "])
         self.statistics_df.at[16, "Value"] = kurtosis
         pass
 

@@ -5,7 +5,7 @@ user inputs for running the classes StatisticalAnalyzer and StaticPlotter.
 
 try:
     import numpy as np
-    import scipy
+    from scipy import stats
     from pathlib import Path
     from matplotlib import pyplot as plt
     from matplotlib.ticker import FormatStrFormatter
