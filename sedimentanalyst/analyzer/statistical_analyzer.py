@@ -388,7 +388,10 @@ class StatisticalAnalyzer:
         Set porosity value from the user into the summary statistics dataframe
         """
         try:
-            self.porosity_conductivity_df.at[4, "Porosity"] = self.porosity
+            if isinstance(self.porosity, (int, float)):
+                self.porosity_conductivity_df.at[4, "Porosity"] = self.porosity
+            else:
+                self.porosity_conductivity_df[4, "Porosity"] = np.nan
         except:
             self.porosity_conductivity_df.at[4, "Porosity"] = np.nan
         pass

@@ -50,7 +50,7 @@ class Accessories:
                 
                 Sediment Analyst is a web application coded in Python-3 to leverage a quick, interactive, and 
                 visual sedimentological analyses. By inputting datasets of sieved class weights (see examples 
-                [here](https://github.com/federicascolari8/PythonProject/blob/main/templates/template-sample-file.xlsx)),
+                [here](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx)),
                 Sediment Analyst computes characteristic grain sizes (namely, d10, d16, d25, d30, d50, d60, d75, d84, 
                 d90), mean grain size, geometrical mean grain size, porosity, and hydraulic conductivity estimators. 
                 Checkout our video 
@@ -66,7 +66,7 @@ class Accessories:
                 __row index__, __column index__, separated by comma (,) in the fields below. For instance, if the 
                 sample name lives on the row 0 (first row) and column 2 (third column): type 0,2 in the field *samplename*.
                 The fields are currently filled in by default according to our template, which we made available 
-                [here](https://github.com/federicascolari8/PythonProject/blob/main/templates/template-sample-file.xlsx).
+                [here](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx).
                 
                 '''
         )
@@ -80,7 +80,7 @@ class Accessories:
             dcc.Markdown(
                 '''
                 Delete default input values below for personalizing the parsing of the files contents when not using our 
-                [template](https://github.com/federicascolari8/PythonProject/blob/main/templates/template-sample-file.xlsx).
+                [template](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx).
                 In following, press the 'RUN' button below '''),
             dcc.Input(id="header", type="number", placeholder="table's header", value=9),
             dcc.Input(id="gs_clm", type="number", placeholder="grain sizes column index (start from zero)",
