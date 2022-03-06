@@ -80,8 +80,7 @@ class StatisticalAnalyzer:
 
         """
         # initialize cumulative dataframe
-        self.cumulative_df = self.cumulative_df.append(self.original_df)
-
+        self.cumulative_df = pd.concat([self.cumulative_df, self.original_df])
         # create new columns float type in dataframe
         self.cumulative_df["Percentage Fraction [%]"] = np.nan
         self.cumulative_df["Cumulative Percentage [%]"] = np.nan
@@ -437,7 +436,8 @@ class StatisticalAnalyzer:
         Returns:
              float: Sample hydraulic conductivity [m\s]
         """
-        kozeny_df = pd.DataFrame().append(self.cumulative_df)
+        kozeny_df = pd.DataFrame()
+        kozeny_df = pd.concat([kozeny_df, self.cumulative_df])
         kozeny_df["D_ave_i [cm]"] = ((kozeny_df["Grain Sizes [mm]"].shift(1, fill_value=0) / 10) ** 0.404) * (
                 kozeny_df["Grain Sizes [mm]"] / 10) ** 0.595
         kozeny_df["Deff_i [cm]"] = kozeny_df["Percentage Fraction [%]"] / kozeny_df["D_ave_i [cm]"]

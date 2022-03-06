@@ -123,7 +123,7 @@ def append_global(obj=None, df=None):
 
     # organize statistics to append in global df
     df_stat = pd.DataFrame()
-    df_stat = df_stat.append(obj.statistics_df.transpose())
+    df_stat = pd.concat([df_stat, obj.statistics_df.transpose()])
     df_stat.columns = df_stat.iloc[0]
     df_stat.drop("Name", axis=0, inplace=True)
     df_stat.reset_index(drop=True, inplace=True)
@@ -157,7 +157,7 @@ def append_global(obj=None, df=None):
     if df.empty:
         df = df_add
     else:
-        df = df.append(df_add, ignore_index=True)
+        df = pd.concat([df, df_add], ignore_index=True)
 
     return df
 
