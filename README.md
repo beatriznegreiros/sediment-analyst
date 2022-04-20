@@ -20,7 +20,7 @@ Important! Checkout the ```requirements.txt``` file for the version requirements
 
 ## Running the Codes and preparing Inputs
 
-The input data for sediment-analyst consists of Excel/csv files for each sediment sample. Accepted extensions are therefore ```.csv``` and ```.xlsx```. 
+The input data for sediment-analyst consists of CSV files for each sediment sample. Accepted extensions are therefore ```.csv``` and ```.xlsx```. 
 
 Use Sediment Analyst locally by cloning this repository or online with our app. Checkout:
 
