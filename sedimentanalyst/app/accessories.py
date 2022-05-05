@@ -48,7 +48,7 @@ class Accessories:
             '''
                 ### Welcome
                 
-                Sediment Analyst is a web application coded in Python-3 to leverage a quick, interactive, and 
+                Sediment Analyst is a web application coded in Python-3 to leverage quick, interactive, and 
                 visual sedimentological analyses. By inputting datasets of sieved class weights (see examples 
                 [here](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx)),
                 Sediment Analyst computes characteristic grain sizes (namely, d10, d16, d25, d30, d50, d60, d75, d84, 
@@ -71,6 +71,16 @@ class Accessories:
                 '''
         )
 
+        self.contributors = dcc.Markdown(
+            '''
+                ##### Contributors:
+                - [Beatriz Negreiros](https://beatriznegreiros.com/)
+                - Federica Scolari
+                - [Ricardo Barros](https://ricardovobarros.github.io/)
+
+                '''
+        )
+
         self.img_style = {'width': '100%',
                           'height': '500px',
                           'display': 'inline-block !important',
@@ -81,7 +91,7 @@ class Accessories:
                 '''
                 Delete default input values below for personalizing the parsing of the files contents when not using our 
                 [template](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx).
-                In following, press the 'RUN' button below '''),
+                In following, press the 'RUN' button below. '''),
             dcc.Input(id="header", type="number", placeholder="table's header", value=9),
             dcc.Input(id="gs_clm", type="number", placeholder="grain sizes column index (start from zero)",
                       value=1),

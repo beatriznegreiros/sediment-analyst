@@ -88,6 +88,8 @@ app.layout = html.Div(
 
         # barchart
         html.Div(id='div-barchart'),
+
+        acc.contributors
     ])
 
 
