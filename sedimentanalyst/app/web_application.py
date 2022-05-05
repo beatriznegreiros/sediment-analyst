@@ -24,9 +24,9 @@ acc = Accessories()
 app.layout = html.Div(
     children=[  # this code section taken from Dash docs https://dash.plotly.com/dash-core-components/upload
         html.H1("Sediment Analyst", style={'text-align': 'center'}),  # header
-        html.Img(src='https://raw.githubusercontent.com/federicascolari8/PythonProject_Other/main/sedimentanalyst/app'
-                     '/assets/Ering_Germany.jpg',
-                 style=acc.img_style),  # Image
+        # html.Img(src='https://raw.githubusercontent.com/federicascolari8/PythonProject_Other/main/sedimentanalyst/app'
+        #              '/assets/Ering_Germany.jpg',
+        #          style=acc.img_style),  # Image
         acc.intro_text,
         html.Br(),
         acc.inputs_text,
@@ -225,7 +225,7 @@ def update_map(data, dict_to_get_proj, samples):
               )
 def update_stat_drop(n_clicks, data):
     df = pd.DataFrame(data=data['data'], columns=data['columns'])
-    statistics = df.columns[4:23].tolist()
+    statistics = df.columns[4:27].tolist()
 
     return html.Div([dcc.Markdown('''##### Filter by statistic: '''),
                      dcc.Dropdown(id='statistics_id',
@@ -254,7 +254,7 @@ def update_barchart(data, stat_value, samples):
     df = df[df['sample name'].isin(samples)]
 
     # filter samples given statistic
-    df = df.iloc[:, 4:23]
+    df = df.iloc[:, 4:27]
     i_plotter = interac_plotter.InteractivePlotter(df)
     fig = i_plotter.plot_barchart(param=stat_value, samples=samples)
     # fig.update_layout(transition_duration=500)

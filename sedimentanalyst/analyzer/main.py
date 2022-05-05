@@ -31,6 +31,7 @@ def main():
         analyzer = StatisticalAnalyzer(sieving_df=sieving_df, metadata=metadata)
 
         print(analyzer.statistics_df)
+        print(analyzer.cumulative_df)
         # print(analyzer.sampledate, analyzer.samplename, analyzer.coords)
 
         # append global dataframe
