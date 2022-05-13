@@ -34,7 +34,7 @@ Please note that the plots provided in the *analyzer* subpackage are static (not
 
 
 Sediment Analyst features a novel app for enabling interactive analyses. The app can be hosted locally if you run  ```web_application.py``` in the *app* subpackage. 
-Click on the link provided by your console (the link is similar to http://000.0.0.0:0000/). We provide a full video [tutorial](https://youtu.be/zXfN9-M12i0) on how 
+Click on the link provided by your console (the link is similar to http://127.0.0.1), which is your local host (hosted in your own PC and not served on the web). We provide a full video [tutorial](https://youtu.be/zXfN9-M12i0) on how 
 you can correctly input where the index information is, so that Sediment Analyst can parse your data files, in case you are not using our [template](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx) as input file. **Optional inputs** for the app are: latitude and longitude, SF (sphericity index) and Porosity index.
 
 ### Use the app
