@@ -60,6 +60,7 @@ class StatisticalAnalyzer:
         self.statistics_df = pd.DataFrame()
         self.__interpolation_df = pd.DataFrame()
         self.porosity_conductivity_df = pd.DataFrame()
+        self.metadata = metadata
         self.samplename = metadata[0]
         self.sampledate = metadata[1]
         self.coords = metadata[2]
@@ -71,6 +72,9 @@ class StatisticalAnalyzer:
         self.__compute_interp_dfs()
         self.compute_statistics_df()
         self.compute_porosity_conductivity_df()
+
+    def __repr__(self):
+        return "StatisticalAnalyzer({0}, {1})".format(self.original_df, self.metadata)
 
     def compute_cumulative_df(self):
         """
