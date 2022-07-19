@@ -53,8 +53,9 @@ class Accessories:
                 [here](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx)),
                 Sediment Analyst computes characteristic grain sizes (namely, d10, d16, d25, d30, d50, d60, d75, d84, 
                 d90), mean grain size, geometrical mean grain size, porosity, and hydraulic conductivity estimators. 
-                Checkout our video 
-                [tutorial](https://youtu.be/zXfN9-M12i0).
+                .
+                
+                Click on LOAD EXAMPLE, then Click on RUN ANALYSIS below to run the example given in the [tutorial](https://youtu.be/zXfN9-M12i0). 
                 
                 '''
         )
@@ -74,9 +75,10 @@ class Accessories:
         self.contributors = dcc.Markdown(
             '''
                 ##### Contributors:
+                - [Ricardo Barros](https://ricardovobarros.github.io/)
                 - [Beatriz Negreiros](https://beatriznegreiros.com/)
                 - Federica Scolari
-                - [Ricardo Barros](https://ricardovobarros.github.io/)
+                
 
                 '''
         )
@@ -91,7 +93,7 @@ class Accessories:
                 '''
                 Delete default input values below for personalizing the parsing of the files contents when not using our 
                 [template](https://github.com/beatriznegreiros/sediment-analyst/blob/master/assets/template-sample-file.xlsx).
-                In following, press the 'RUN' button below. '''),
+                In following, press the 'RUN ANALYSIS' button below. '''),
             dcc.Input(id="header", type="number", placeholder="table's header", value=9),
             dcc.Input(id="gs_clm", type="number", placeholder="grain sizes column index (start from zero)",
                       value=1),
@@ -117,7 +119,7 @@ class Accessories:
                                 'text-align': 'left'}
 
     # Auxiliary function for parsing contents of the files
-    def parse_contents(self, contents, filename, date, input_dict_app):
+    def parse_contents(self, contents=None, filename=None, date=None, input_dict_app=None, file_name_example=None):
         """
         Args:
             contents (dash.dcc.Input.Input): Contents of the file containing the sample data (class weights and
@@ -130,16 +132,24 @@ class Accessories:
         Returns:
             StatisticalAnalyzer: object for accessing necessary attributes of the class.
         """
-        content_type, content_string = contents.split(',')
+        # create a dataframe from Upload or example file
+        if contents is not None:
+            content_type, content_string = contents.split(',')
 
-        decoded = base64.b64decode(content_string)
-        if 'csv' in filename:
-            # Assume that the user uploaded a CSV file
-            df = pd.read_csv(
-                io.StringIO(decoded.decode('utf-8')))
-        elif 'xls' in filename:
-            # Assume that the user uploaded an excel file
-            df = pd.read_excel(io.BytesIO(decoded), engine="openpyxl", header=None)
+            decoded = base64.b64decode(content_string)
+            if 'csv' in filename:
+                # Assume that the user uploaded a CSV file
+                df = pd.read_csv(
+                    io.StringIO(decoded.decode('utf-8')))
+            elif 'xls' in filename:
+                # Assume that the user uploaded an excel file
+                df = pd.read_excel(io.BytesIO(decoded), engine="openpyxl", header=None)
+
+            print(df.head())
+        elif file_name_example is not None:
+            df = pd.read_excel(file_name_example, engine="openpyxl", header=None)
+            print(df.head())
+
 
         # clean the dataset by catching only inputs indicated with the indexes
         dff = df.copy()

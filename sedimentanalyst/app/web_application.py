@@ -19,6 +19,9 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
 # Instantiates to get accessories of the app from the class Accessories (accessories.py)
 acc = Accessories()
 
+# save two examples of the tutorial to run as example inside the app
+# df_example = pd.read_csv()
+
 
 # App layout
 app.layout = html.Div(
@@ -28,6 +31,7 @@ app.layout = html.Div(
         #              '/assets/Ering_Germany.jpg',
         #          style=acc.img_style),  # Image
         acc.intro_text,
+        html.Button("load example", id="btn_run_example", style={"background-color": "#4CAF50"}),
         html.Br(),
         acc.inputs_text,
         html.Br(),
@@ -56,7 +60,7 @@ app.layout = html.Div(
         dcc.Store(id='store_manual_inputs'),
 
         # [fires up Callback 3...]
-        html.Button('Run analysis', id='btn_run'),
+        html.Button('Run analysis', id='btn_run', style={"background-color": "#4CAF50"}),
         html.Br(),
 
         # store global dataframe
@@ -107,7 +111,7 @@ app.layout = html.Div(
     Input('index_sample_name', 'value'),
     Input('index_sample_date', 'value'),
     Input('projection', 'value'),
-    Input('btn_run', 'n_clicks'),
+    Input('btn_run_example', 'n_clicks'),
     # prevent_initial_call=True,
 )
 def save_inputs(header, gs_clm, cw_clm, n_rows, porosity,
@@ -138,13 +142,17 @@ def save_inputs(header, gs_clm, cw_clm, n_rows, porosity,
               State('upload-data', 'last_modified'),
               State('store_manual_inputs', 'data'),
               Input('btn_run', 'n_clicks'),
+              Input('btn_run_example', "n_clicks"),
               prevent_initial_call=True,
               )
-def parse_and_analyse(list_of_contents, list_of_names, list_of_dates, input_dict_in_layout, click):
+def parse_and_analyse(list_of_contents, list_of_names, list_of_dates, input_dict_in_layout, click_run,
+                      click_run_example,
+                      ):
+    df_global = pd.DataFrame()
+    children = []
+    list_analyzers = []
+
     if list_of_contents is not None:
-        df_global = pd.DataFrame()
-        children = []
-        list_analyzers = []
 
         # iterating through files and appending reading messages as well as
         # analysis objects (analyzers)
@@ -152,21 +160,29 @@ def parse_and_analyse(list_of_contents, list_of_names, list_of_dates, input_dict
             from_parsing = acc.parse_contents(c, n, d, input_dict_in_layout)
             list_analyzers.append(from_parsing)
 
-        # append all information from the list of analyzers into a global df
-        for inter_analyzer in list_analyzers:
-            df_global = append_global(obj=inter_analyzer,
-                                      df=df_global)
+    elif click_run_example > 0:
+        file_list = glob.glob(str(Path(os.path.abspath(os.getcwd()) + "/examples")) + "/*.xlsx")
+        for file_name_example in file_list:
+            from_parsing = acc.parse_contents(input_dict_app=input_dict_in_layout, file_name_example=file_name_example)
+            list_analyzers.append(from_parsing)
 
-        # return summary statistics
-        data2 = df_global.to_dict('split')
-        children.append(html.Div([
-            html.Button('Download Summary Statistics', id='btn_download'),
-            dcc.Download(id='download-dataframe-csv'),
-        ])
-        )
-        children.append(data2)
+        print(file_list, click_run_example, str(Path(os.path.abspath(os.getcwd()) + "/examples")))
 
-        return children
+    # append all information from the list of analyzers into a global df
+    for inter_analyzer in list_analyzers:
+        df_global = append_global(obj=inter_analyzer,
+                                  df=df_global)
+
+    # return summary statistics
+    data2 = df_global.to_dict('split')
+    children.append(html.Div([
+        html.Button('Download Summary Statistics', id='btn_download', style={"background-color": "#4CAF50"}),
+        dcc.Download(id='download-dataframe-csv'),
+    ])
+    )
+    children.append(data2)
+
+    return children
 
 
 # Callback 3: for enabling the download of summary statistics of all input samples, it is fired up by 'btn_download'
@@ -210,7 +226,6 @@ def update_sample_id(n_clicks, data):  # n_clicks is mandatory even if not used
     Input('sample_id', 'value'),
     prevent_initial_call=True
 )
-
 def update_map(data, dict_to_get_proj, samples):
     df = pd.DataFrame(data=data['data'], columns=data['columns'])
     int_plot = interac_plotter.InteractivePlotter(df)
@@ -265,6 +280,7 @@ def update_barchart(data, stat_value, samples):
                      style=acc.style_graph
                      )
 
+
 # Callback 8: for plotting/updating grain size distribution graph
 @app.callback(
     Output('div-gsd', 'children'),
@@ -287,6 +303,7 @@ def update_gsd(data, samples):
                      style=acc.style_graph
                      )
 
+
 # Callback 9: for plotting the diameters
 @app.callback(
     Output('div-diameters', 'children'),
@@ -294,7 +311,6 @@ def update_gsd(data, samples):
     Input('sample_id', 'value'),
     prevent_initial_call=True
 )
-
 def update_diameters(data, samples):
     # save into dataframe
     df = pd.DataFrame(data=data['data'], columns=data['columns'])
@@ -310,6 +326,14 @@ def update_diameters(data, samples):
                      style=acc.style_graph
                      )
 
+# way to fire a button with other
+# @app.callback(Output('btn_run','n_clicks'),
+#               Input('stored-data', 'data'),
+#               [State('btn_run_example', 'n_clicks')])
+# def callback_func(button_clicks,data):
+#     if button_clicks:
+#         return button_clicks
+#     raise dash.exceptions.PreventUpdate
 
 if __name__ == '__main__':
     app.run_server(debug=False)
