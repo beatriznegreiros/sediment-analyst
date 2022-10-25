@@ -83,10 +83,13 @@ class InteractivePlotter:
                                 color='sample name',
                                 zoom=11)
 
-        fig.update_layout(
-            mapbox_style="open-street-map",
-        )
+        # fig.update_layout(
+        #     mapbox_style="open-street-map",
+        # )
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+        fig.update_layout(
+            mapbox_style="https://api.maptiler.com/maps/hybrid/style.json?key=0Z4EjONT5cOhLOIpZlRQ"
+        )
 
         return fig
 
