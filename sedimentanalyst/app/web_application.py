@@ -173,6 +173,7 @@ def parse_and_analyse(list_of_contents, list_of_names, list_of_dates, input_dict
         df_global = append_global(obj=inter_analyzer,
                                   df=df_global)
 
+    df_global = df_global.sort_values(by=['sample name'])
     # return summary statistics
     data2 = df_global.to_dict('split')
     children.append(html.Div([
@@ -228,6 +229,7 @@ def update_sample_id(n_clicks, data):  # n_clicks is mandatory even if not used
 )
 def update_map(data, dict_to_get_proj, samples):
     df = pd.DataFrame(data=data['data'], columns=data['columns'])
+    df = df.sort_values(['sample name'])
     int_plot = interac_plotter.InteractivePlotter(df)
     fig = int_plot.create_map(df=df, samples=samples, projection=dict_to_get_proj['projection'])
     fig.update_layout(transition_duration=500)
