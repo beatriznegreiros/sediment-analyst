@@ -147,7 +147,7 @@ class InteractivePlotter:
         df = self.df[self.df["sample name"].isin(samples)]
 
         # filter only grain size, samples name and class weight
-        df_gsd = df.set_index("sample name").iloc[:, 33:49].stack().reset_index()
+        df_gsd = df.set_index("sample name").iloc[:, 32:49].stack().reset_index()
 
         # rename columns for future reference
         df_gsd.rename(columns={df_gsd.columns[1]: "gsd", df_gsd.columns[2]: "cw"}, inplace=True)
