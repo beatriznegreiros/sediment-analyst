@@ -39,10 +39,9 @@ you can correctly input where the index information is, so that Sediment Analyst
 
 ### Use the app
 
-The app can be also accessed [here](https://sedimentanalyst.herokuapp.com), which runs with a [heroku](https://www.heroku.com/) server. Note that here there is a maximum limit of 500 MB when loading in the app. For inputting very large datasets (> 500 MB) we recommend using the app locally. 
+The app will also be served online soon. More information will be released in February 2023.
 
-[![Image](assets/intro_w_image.jpg)](https://sedimentanalyst.herokuapp.com/)
-
+![Image](assets/intro_w_image.jpg)
 
 ## Outputs and Capabilities
 
